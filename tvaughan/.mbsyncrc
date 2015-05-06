@@ -1,0 +1,17 @@
+Create both
+Expunge none
+
+MaildirStore local
+  Path ~/Maildir/
+  Flatten .
+
+IMAPStore tocino
+  Host mail.tocino.cl
+  UseIMAPS yes
+  CertificateFile ~/.mail.tocino.cl.crt
+  User tvaughan
+
+Channel tocino
+  Master :tocino:
+  Slave :local:
+  Pattern *

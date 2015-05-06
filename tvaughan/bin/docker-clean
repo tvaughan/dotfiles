@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+readonly VOLUMES=$(docker volume ls -q -f "dangling=true")
+[[ ! -z $VOLUMES ]] && docker volume rm $VOLUMES
+
+readonly IMAGES=$(docker images -q -f "dangling=true")
+[[ ! -z $IMAGES ]] && docker rmi $IMAGES
+
+readonly CONTAINERS=$(docker ps -a -q -f "status=exited")
+[[ ! -z $CONTAINERS ]] && docker rm $CONTAINERS

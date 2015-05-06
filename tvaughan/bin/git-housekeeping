@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -o errexit
+
+git up
+git delete-merged-branches
+git worktree prune
+git gc --prune=now

@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[en_US]=emacs
+Name[en_US]=GNU Emacs 24 Client
+Exec=emacsclient.emacs24 -c %F
+Name=GNU Emacs 24 Client
+Icon=emacs
+StartupWMClass=Emacs24Client

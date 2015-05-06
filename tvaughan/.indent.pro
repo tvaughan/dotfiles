@@ -1,0 +1,8 @@
+--continuation-indentation2
+--dont-cuddle-else
+--format-all-comments
+--indent-level8
+--line-length110
+--linux-style
+--no-tabs
+--procnames-start-lines

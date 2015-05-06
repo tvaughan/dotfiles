@@ -1,0 +1,2 @@
+URxvt*font: xft:terminus:pixelsize=15
+URxvt*boldFont: xft:terminus:bold:pixelsize=15

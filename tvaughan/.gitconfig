@@ -1,0 +1,26 @@
+[alias]
+        ci = commit
+        ca = commit --all
+        co = checkout
+        di = diff
+        dc = diff --cached
+        ll = log --decorate --oneline --topo-order
+        si = status --ignored
+        st = status --short --untracked-files=no
+        up = "!git fetch --prune && git merge --ff-only @{u}"
+[color]
+        branch = auto
+        diff = auto
+        status = auto
+[core]
+        autocrlf = input
+        safecrlf = true
+[push]
+        default = current
+[user]
+        name = Tom Vaughan
+        email = tvaughan@tocino.cl
+[diff]
+        algorithm = patience
+[init]
+	templatedir = ~/.git.d/templates

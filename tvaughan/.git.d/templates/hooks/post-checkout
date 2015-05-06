@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+. $(git --exec-path)/git-sh-setup
+
+cd_to_toplevel
+
+find . -type d -name "*.egg-info" -print0 | xargs -0 rm -rf
+find . -type f -name "*.pyc" -print0 | xargs -0 rm -f
+find . -type d -name __pycache__ -print0 | xargs -0 rm -rf

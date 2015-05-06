@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+readonly SESSION_NAME=$(basename $1)-$$
+byobu new-session -d -s $SESSION_NAME "$@"
+echo $SESSION_NAME

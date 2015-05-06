@@ -1,0 +1,9 @@
+# -*- coding: utf-8; mode: sh -*-
+
+. $HOME/.liquidprompt.theme
+
+LP_MARK_DEFAULT=" "
+export LP_MARK_DEFAULT
+
+LP_PS1_POSTFIX="\n$ "
+export LP_PS1_POSTFIX

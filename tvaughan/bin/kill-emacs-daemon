@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+emacsclient -e "(progn (setq kill-emacs-hook 'nil) (kill-emacs))"

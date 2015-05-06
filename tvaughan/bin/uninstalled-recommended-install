@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+sudo aptitude install $(unistalled-recommended-list)

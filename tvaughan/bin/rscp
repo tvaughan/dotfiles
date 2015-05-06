@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+rsync --archive --partial --progress --rsh=ssh "$@"

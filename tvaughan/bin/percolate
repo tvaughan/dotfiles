@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+set -o errexit
+
+brew tap homebrew/completions
+brew tap homebrew/versions
+
+brew tap caskroom/cask
+brew tap caskroom/fonts
+
+brew update
+brew cask update
+
+brew upgrade --all
+
+brew install emacs --with-cocoa --srgb
+brew install mu --with-emacs
+
+brew unlinkapps
+brew linkapps --local emacs
+
+rm -f $HOME/Library/LaunchAgents/*emacs*.plist
+ln -s /usr/local/opt/emacs/*emacs*.plist $HOME/Library/LaunchAgents
+
+readonly PACKAGES="
+    autossh
+    bash
+    byobu
+    cask
+    figlet
+    git
+    htop
+    ispell
+    python3
+"
+
+for PACKAGE in $PACKAGES
+do
+    brew install $PACKAGE
+done
+
+# brew uninstall bash-completion
+brew install bash-completion2
+
+readonly COMPLETIONS="
+    brew-cask
+    docker
+    docker-compose
+    docker-machine
+    vagrant
+"
+
+for COMPLETION in $COMPLETIONS
+do
+    brew install $COMPLETION-completion
+done
+
+readonly APPLICATIONS="
+    dockertoolbox
+    flux
+    google-chrome
+    google-hangouts
+    java
+    skype
+    slack
+    terraform
+    torbrowser
+    transmission
+    vagrant
+    vlc
+    virtualbox
+    zoomus
+"
+
+for APPLICATION in $APPLICATIONS
+do
+    brew cask install $APPLICATION
+done
+
+readonly FONTS="
+    terminus
+"
+
+for FONT in $FONTS
+do
+    brew cask install font-$FONT
+done
+
+brew cleanup -s
+brew cask cleanup
+
+brew prune
+
+brew doctor
+brew cask doctor
+
+defaults write com.apple.Terminal AutoMarkPromptLines -int 0
+
+# sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+
+# echo /usr/local/bin/bash | sudo tee -a /etc/shells

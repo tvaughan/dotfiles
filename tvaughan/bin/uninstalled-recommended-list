@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+aptitude search '~RBrecommends:~i' | awk '/^p/ {print $2}'

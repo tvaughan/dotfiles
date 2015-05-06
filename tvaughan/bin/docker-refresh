@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+readonly IMAGES=$(docker images | grep -v REPOSITORY | sort | awk '{print $1":"$2}')
+
+for IMAGE in $IMAGES
+do
+    docker pull $IMAGE
+done
+
+docker-clean

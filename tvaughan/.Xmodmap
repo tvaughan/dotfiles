@@ -1,0 +1,7 @@
+keycode 166 = XF86AudioLowerVolume
+keycode 167 = XF86AudioRaiseVolume
+keycode 66 = Control_L
+keycode 37 = NoSymbol
+clear Lock
+clear Control
+add Control = Control_L Control_R

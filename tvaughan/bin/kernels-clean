@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8; mode: sh -*-
+
+first()
+{
+    echo "$1"
+}
+
+rest()
+{
+    shift
+    echo "$@"
+}
+
+_check_running_kernel_is_newest_or_die()
+{
+    if ! echo "$1" | grep -c -q "$2" -
+    then
+        echo ERROR: Running kernel "$1" is not newest, expected "$2".
+        exit 1
+    fi
+}
+
+readonly ALL_KERNELS=$(ls -1rv /boot/vmlinuz* | cut -d'-' -f2,3)
+readonly OLD_KERNELS=$(rest $ALL_KERNELS)
+
+_check_running_kernel_is_newest_or_die $(uname -r) $(first $ALL_KERNELS)
+
+for KERNEL in $OLD_KERNELS
+do
+    sudo aptitude purge --purge-unused \
+        $(dpkg -l | egrep ^ii | awk -F' ' '{ print $2 }' | grep $KERNEL)
+done
+
+exit 0

@@ -1,0 +1,5 @@
+autodetach on
+bindkey -m "^[[5;2~" stuff ^b
+bindkey -m "^[[6;2~" stuff ^f
+shell -/bin/bash
+termcapinfo xterm|xterms|xs|rxvt ti@:te@

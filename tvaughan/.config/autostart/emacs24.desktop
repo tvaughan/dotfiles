@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=emacs24 --daemon
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=GNU Emacs 24 daemon
+Name=GNU Emacs 24 daemon
+Comment[en_US]=
+Comment=
